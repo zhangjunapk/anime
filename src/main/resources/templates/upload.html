@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="/css/style.css" rel="stylesheet">
+    <script type="text/javascript" async="" src="/_Incapsula_Resource?SWJIYLWA=719d34d31c8e3a6e6fffd425f7e032f3&amp;ns=1&amp;cb=537023316"></script>
+    <script src="https://hm.baidu.com/hm.js?583bbe764443069261e2e35e8b2b8ac8"></script>
+   <script src="/js/hm.js"></script>
+    <script>var sitePath=''</script>
+
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/function.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery-lazyload/1.9.5/jquery.lazyload.js"></script>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+</head>
+
+
+<body>
+
+
+<style>
+    .bar {
+        height: 18px;
+        background: green;
+    }
+</style>
+<h1><center>Upload</center></h1><br>
+<!--
+   private int id;//id
+    private String name;
+    private String category;//分类
+    private String version;
+    private String pic_link;//封面图片连接
+    private String plot;//剧情
+    private String year;//年代
+    private String language;//语言
+    private String loca;//地区
+    private String role;//角色
+    private String voice_actor;//声优
+    private String alias;//别名
+    private String info;//信息
+    private String status;//状态
+    private Date createDate;
+
+-->
+<input type="text" id="name" placeholder="name"><br>
+category:
+<select id="category"><br>
+    <option value="japan anime">japan anime</option>
+    <option value="west anime">west anime</option>
+    <option value="china anime">china anime</option>
+    <option value="movie anime">movie anim</option>
+    <option value="dimensional">dimensional</option>
+</select><br>
+version:
+<select id="version">
+    <option value="TV">TV</option>
+    <option value="OVA">OVA</option>
+    <option value="real">real</option>
+    <option value="other">other</option>
+</select><br>
+
+<input type="text" id="pic_link" placeholder="pic_link"><br>
+<input type="text" id="type" placeholder="type"><br>
+<input type="text" id="year" placeholder="year"><br>
+<input type="text" id="language" placeholder="language"><br>
+
+loca:
+<select id="loca"><br>
+    <option value="japan">japan</option>
+    <option value="china">west</option>
+    <option value="west">china</option>
+    <option value="other">other</option>
+</select><br>
+
+<input type="text" id="role" placeholder="role"><br>
+<input type="text" id="voice_actor" placeholder="voice_actor"><br>
+<input type="text" id="alias" placeholder="alias"><br>
+<input type="text" id="info" placeholder="info"><br>
+status:
+<select id="status"><br>
+    <option>over</option>
+    <option>continue</option>
+</select>
+<input type="button" id="addAnime" value="add anime"/>
+
+
+
+<script>
+    
+    function updateAnime(name){
+        $.ajax({
+            url:"http://localhost:8080/anime/search_name",
+            data:{
+                name:name
+            },
+            success:(function (data) {
+                var d=eval(data);
+                for(var i=0;i<d.length;i++){
+
+                    $("#radio_group").append("<input type='radio' name='anime_id' value="+d[i].id+">"+d[i].name+"<br>")
+
+                }
+            })
+        })
+    }
+
+    $(function () {
+
+        $("#upload").click(function () {
+            alert($("input[name='anime_id']").val())
+            var f=$("#fo").serialize()
+            $.ajax({
+                url:"/anime/upload?anime_id="+$("input[name='anime_id']").val(),
+                data:f,
+                processData: false,
+                contentType: false,
+                success:(function () {
+                    alert("over")
+                })
+            })
+        })
+
+
+        $("#search").click(function () {
+            updateAnime($("#name_").val());
+        })
+
+
+        $("#addAnime").click(function () {
+            var name=$("#name").val();
+            var category=$("#category").val();
+            var version=$("#version").val();
+            var pic_link=$("#pic_link").val();
+            var type=$("#type").val();
+            var year=$("#year").val();
+            var language=$("#language").val();
+            var loca=$("#loca").val();
+            var role=$("#role").val();
+            var voice_actor=$("#voice_actor").val();
+            var alias=$("#alias").val();
+            var info=$("#info").val();
+            var status=$("#status").val();
+
+            <!--clean-->
+
+            $("#name").empty();
+
+            $.ajax({
+                url:"/anime/add",
+                data:({
+                    name:name,
+                    category:category,
+                    version:version,
+                    pic_link:pic_link,
+                    type:type,
+                    year:year,
+                language:language,
+                    loca:loca,
+                    role:role,
+                    voice_actor:voice_actor,
+                    alias:alias,
+                    info:info,
+                    status:status
+                })
+            })
+        })
+
+
+    })
+    
+</script>
+<form id="fo" enctype="multipart/form-data">
+    <input type="file" multiple/>
+</form>
+
+<input type="text" id="name_" placeholder="input anime name"/>
+<input id="search" type="button" value="search"/>
+<div id="radio_group">
+
+</div>
+
+
+<!--upload button-->
+<input type="button" id="upload" value="upload"/>
+</body>
+
+</html>

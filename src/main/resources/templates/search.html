@@ -1,0 +1,311 @@
+<html lang="zh-CN" xmlns:th="http://www.w3.org/1999/xhtml"><head></head><body>&#65279;
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta name="renderer" content="webkit">
+<meta name="applicable-device" content="pc,mobile">
+<title>a - 动漫岛</title>
+<meta name="keywords" content="a,动漫岛">
+<meta name="description" content="a,动漫岛">
+<link href="/css/style.css" rel="stylesheet">
+<script src="https://hm.baidu.com/hm.js?583bbe764443069261e2e35e8b2b8ac8"></script><script>var sitePath=''</script>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/function.js"></script>
+<script src="https://apps.bdimg.com/libs/jquery-lazyload/1.9.5/jquery.lazyload.js"></script>
+
+
+<script>
+  var category;
+  var plot;
+  var year;
+  var version;
+  var loca;
+  var orderField;
+  function getAnime(key,value){
+      if(key="category"){
+          category=value;
+      }
+      if(key="plot"){
+          plot=value;
+      }
+      if(key="year"){
+          year=value;
+      }
+      if(key="version"){
+          version=value;
+      }
+      if(key="loca"){
+          loca=value;
+      }
+      if(key="orderField"){
+          orderField=value;
+      }
+
+      <!--ajax-->
+
+      $.ajax({
+          url:"/anime/search?category="+category+"&plot="+plot+"&year="+year+"&version="+version+"&loca="+loca+"&orderField="+orderField,
+          success:(function (data) {
+              var d=eval(data);
+              alert(d.length);
+          })
+      })
+
+
+  }
+
+</script>
+
+
+&#65279;<div class="topall">
+  <div class="wrap head clearfix">
+    <ul class="logo"><a href="/index"><i class="logobg png"></i></a></ul>
+    <ul class="nav-pc-2">
+      <li class="js1"><i class="ico pc1bg png"></i><i class="ico pc2bg png"></i><b class="navb">导航</b>
+        <div class="nav-down-pc filter shadow js2 clearfix">
+          <ul>
+
+            <li><a href="/anime/search?category=japan anime">日本动漫</a></li>
+
+            <li><a href="/anime/search?category=china anime">国产动漫</a></li>
+
+            <li><a href="/anime/search?category=west anime">欧美动漫</a></li>
+
+            <li><a href="/anime/search?category=dimensional">剧场电影</a></li>
+
+            <li><a href="/news/dmzx/">动漫资讯</a></li>
+
+            <li><a href="/news/dmcos/">动漫美图</a></li>
+
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <ul class="nav-mb">
+      <li class="nav-sj"><i class="ico pc1bg png"></i><i class="ico pc2bg png"></i><b class="navb">导航</b></li>
+      <li class="nav-sh"><b class="navb">搜索</b></li>
+    </ul>
+    <ul class="nav-pc">
+      <li><b class="navb"><a class="now" href="/index">首页</a></b></li>
+
+      <li>
+        <b class="navb"><a href="/anime/search?category=japan anime">日本动漫</a></b>
+      </li>
+
+      <li>
+        <b class="navb"><a href="/anime/search?category=china anime">国产动漫</a></b>
+      </li>
+
+      <li>
+        <b class="navb"><a href="/anime/search?category=west anime">欧美动漫</a></b>
+      </li>
+
+      <li><b class="navb"><a href="https://www.cosdao.com/topic/">专题</a></b></li>
+    </ul>
+    <ul class="login">
+      <li class="js1"><i class="bglogin png"></i>
+      </li>
+    </ul>
+    <ul class="ls">
+      <li class="js1"><a class="ls1" href="javascript:void(0)" onmouseover="$MH.showHistory(1);">观看记录</a>
+        <div class="lsjl filter shadow js2"><script type="text/javascript" src="/js/history.js"></script><script type="text/javascript">$MH.limit=10;$MH.WriteHistoryBox(180,170,'font');$MH.recordHistory({name:'{playpage:name}',link:'{playpage:url}',pic:'{playpage:pic}'})</script><div id="HISTORY" style="width:100%;"><div id="mh-box" style="height1:170px;overflow:hidden"><div style="height:24px;line-height:24px;clear:both;" id="mh-title"><span style="float:right;"><a href="javascript:void(0)" onclick="$MH.showHistory(2);" style="font-size:12px;color: #333;text-decoration:none">清空</a><a href="javascript:void(0)" onclick="$MH.showHistory(1);" style="display:none;font-size:12px;color: #333;text-decoration:none">隐藏</a></span><strong style="font-size:12px;color:#999;font-weight:400;">我的观看历史</strong></div><div id="mh-ul" style="clear:both"><ul style="margin:0px;border:0px;padding:0;"><li style="list-style:none;"><a href="https://www.cosdao.com/comic2/11300/" target="_self" style="font-size:12px;text-decoration:none"><small>1.</small>秦时明月之天行九歌</a></li><li style="list-style:none;"><a href="https://www.cosdao.com/comic1/12525/" target="_self" style="font-size:12px;text-decoration:none"><small>2.</small>刀剑神域外传GGO</a></li><li style="list-style:none;"><a href="https://www.cosdao.com/comic1/11620/" target="_self" style="font-size:12px;text-decoration:none"><small>3.</small>全金属狂潮第四季</a></li></ul><div style="clear:both"></div></div></div></div></div>
+      </li>
+    </ul>
+    <ul class="search sh">
+      <form name="formsearch" id="formsearch" action="/search.php" method="post" target="_self" autocomplete="off">
+        <input class="input" name="searchword" type="text" id="keyword" placeholder="输入关键词">
+        <div class="search-key filter shadow"><a href="/search.php?searchword=%E7%A7%A6%E6%97%B6%E6%98%8E%E6%9C%88">秦时明月</a> <a href="/search.php?searchword=%E8%B5%9B%E5%B0%94%E5%8F%B7">赛尔号</a> <a href="/search.php?searchword=%E5%87%BA%E5%8C%85%E7%8E%8B%E5%A5%B3">出包王女</a> <a href="/search.php?searchword=%E9%9B%B6%E5%BA%A6%E6%88%98%E5%A7%AC">零度战姬</a> <a href="/search.php?searchword=%E6%9F%AF%E5%8D%97">柯南</a> <a href="/search.php?searchword=%E7%81%AB%E5%BD%B1%E5%BF%8D%E8%80%85">火影忍者</a> </div>
+        <input class="ico imgbt1 png" type="submit" value="">
+        <input class="ico imgbt2 png" type="submit" value="">
+      </form>
+    </ul>
+    <div class="nav-down-mb filter shadow clearfix">
+      <ul>
+
+        <li><a href="/comic1/">日本动漫</a></li>
+
+        <li><a href="/comic2/">国产动漫</a></li>
+
+        <li><a href="/comic3/">欧美动漫</a></li>
+
+        <li><a href="/comicjc/">剧场电影</a></li>
+
+        <li><a href="/comicys/">次元影视</a></li>
+
+        <li><a href="https://www.cosdao.com/topic/">专题合辑</a></li>
+        <li><a href="https://www.cosdao.com/xinfangengxin.html" style="color:#666;">周更表</a></li>
+        <li><a href="https://www.cosdao.com/lishi.html" style="color:#999;">浏览记录</a></li>
+      </ul>
+    </div>
+    <div class="search-mb filter shadow">
+      <div class="shall clearfix">
+        <form name="formsearch" id="formsearch" action="/search.php" method="post" target="_self" autocomplete="off">
+          <input class="input" name="searchword" type="text" id="keyword" placeholder="输入关键词">
+          <input class="imgbt" type="submit" value="搜索">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrap">
+  <div class="sy-all clearfix">
+    <div class="sy-title clearfix">
+      <div class="text">
+        <z th:text="${info}"></z>
+        <z th:text="${session.category}"></z>
+        <z th:text="${session.type}"></z>
+        <z th:text="${session.year}"></z>
+        <z th:text="${session.version}"></z>
+
+        <z th:text="${session.loca}"></z>
+      </div>
+      <div class="more sbtn">
+        <b class="more1"><i class="name">展开</i><i class="ico sybg1 png"></i></b>
+        <b class="more2"><i class="name">收起</i><i class="ico sybg2 png"></i></b>
+      </div>
+    </div>
+    <div class="sy scon clearfix">
+      <dl class="clearfix"><dt>按分类：</dt>
+        <dd >
+
+          <a href="/anime/search?category=-1" th:class="${session.category==null||session.category==''} ?'on':''">all</a>
+          <a th:each="category:${category_list}" th:href="@{'/anime/search?category='+${category} }"
+             th:class="${session.category==category?'on':''}" th:text="${category}"></a>
+
+
+        </dd>
+      </dl>
+      <dl class="clearfix"><dt>按剧情：</dt>
+        <dd >
+
+          <a href="/anime/search?type=-1" th:class="${session.type==null||session.type==''} ?'on':''">all</a>
+          <a th:each="type:${type_list}" th:href="@{'/anime/search?type='+${type} }" th:class="${session.type==type?'on':''}" th:text="${type}"></a>
+
+        </dd>
+      </dl>
+      <dl class="clearfix"><dt>按年代：</dt>
+        <dd >
+
+          <a href="/anime/search?year=-1" th:class="${session.year==null||session.year==''} ?'on':''">all</a>
+          <a th:each="year:${year_list}" th:href="@{'/anime/search?year='+${year} }" th:class="${session.year==year?'on':''}" th:text="${year}"></a>
+
+        </dd>
+      </dl>
+
+      <dl class="area clearfix"><dt>按版本：</dt>
+        <dd>
+          <a href="/anime/search?version=-1" class="on" th:class="${session.version==null||session.version==''} ?'on':''">全部</a>
+          <a th:each="version:${version_list}" th:href="@{'/anime/search?version='+${version} }" th:class="${session.version==version?'on':''}" th:text="${version}"></a>
+
+        </dd>
+        <dd>
+          <a style="color:#000;font-weight:bold;">地区:</a>
+          <a href="/anime/search?loca=-1" class="on" th:class="${session.loca==null||session.loca==''} ?'on':''">全部</a>
+          <a th:each="loca:${loca_list}" th:href="@{'/anime/search?loca='+${loca} }" th:class="${session.loca==loca?'on':''}" th:text="${loca}"></a>
+
+        </dd>
+      </dl>
+
+
+    </div>
+  </div>
+  <div class="list-tab mb clearfix">
+    <ul>
+
+
+      <li><a th:class="${session.order_field=='date'} ?'time on':'zx'" href="/anime/search?order_field=date">最新</a></li>
+      <li><a th:class="${session.order_field=='playCount'} ?'time on':'rq'" href="/anime/search?order_field=playCount">人气</a></li>
+      <li><a class="tj" href="https://www.cosdao.com/search.php?page=1&amp;searchtype=5&amp;order=commend&amp;tid=0&amp;area=&amp;year=&amp;letter=&amp;yuyan=&amp;state=&amp;money=&amp;ver=&amp;jq=">推荐</a></li>
+
+
+
+    </ul>
+  </div>
+  <div class="index-tj mb clearfix">
+    <ul th:each="entry:${anime_map}">
+
+      <li class="mb">
+        <a class="li-hv" th:href="@{'/anime/'+${entry.key.id}}" th:title="${entry.key.name}">
+          <div class="img">
+            <img class="lazy" th:data-original="${entry.key.pic_link}" th:src="${entry.key.pic_link}" th:alt="${entry.key.name}" style="display: block;">
+            <b class="bg1"></b>
+            <b class="play-hv"></b>
+            <b class="sjbg2 png"></b>
+            <p class="bz" th:text="${entry.value}"></p>
+          </div>
+          <div class="text">
+            <p class="name" th:text="${entry.key.name}"></p>
+          </div>
+        </a>
+      </li>
+
+
+
+    </ul>
+  </div>
+  <div class="page mb clearfix">
+
+
+
+    <em>1</em>
+
+
+
+    <a href="?page=2&amp;searchword=a&amp;searchtype=">2</a>
+
+
+
+    <a href="?page=3&amp;searchword=a&amp;searchtype=">3</a>
+
+
+
+    <a href="?page=4&amp;searchword=a&amp;searchtype=">4</a>
+
+
+
+    <a href="?page=5&amp;searchword=a&amp;searchtype=">5</a>
+
+
+
+    <a href="?page=6&amp;searchword=a&amp;searchtype=">6</a>
+
+
+
+    <a href="?page=7&amp;searchword=a&amp;searchtype=">7</a>
+
+
+
+    <a href="?page=8&amp;searchword=a&amp;searchtype=">8</a>
+
+
+
+    <a href="?page=2&amp;searchword=a&amp;searchtype=">&gt;</a>
+    <a href="?page=62&amp;searchword=a&amp;searchtype=">..62</a>
+
+  </div>
+</div>
+&#65279;<div class="footer clearfix">
+  <p>
+    本网站提供的最新动漫资源均系收集于各大视频网站，本网站只提供web页面服务，并不提供影片资源存储，也不参与录制、上传
+  </p>
+  <p>
+    若本站收录的链接无意侵犯了贵司版权，请邮箱联系我们，我们会及时处理相关内容，谢谢！邮箱：cosxiaoman#hotmail.com
+  </p>
+  Copyright ©2017-2020 <a href="https://www.cosdao.com">www.cosdao.com</a> All Rights Reserved · <a href="/xml/baidu.xml">百度地图</a> · <a href="/xml/google.xml">google地图</a> · <a href="/xml/rss.xml">rss订阅</a> ·
+</div>
+<div class="gotop"><a class="gotopbg" href="javascript:;" title="返回顶部"></a></div>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?583bbe764443069261e2e35e8b2b8ac8";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+</body></html>
